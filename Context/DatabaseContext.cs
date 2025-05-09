@@ -48,11 +48,10 @@ namespace Infrastructure.Data.Context
             }
         }
 
-
         #region Asynchronous methods
         public async Task BeginTransactionAsync()
         {
-            Connection = await Database.GetConnectionAsync();
+            Connection = Database.GetConnection();
             if (Connection.State != ConnectionState.Open) await Connection.OpenAsync();
             Transaction = await Database.GetTransactionAsync(Connection, IsolationLevel.ReadCommitted);
         }

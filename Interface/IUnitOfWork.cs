@@ -8,7 +8,6 @@ namespace Infrastructure.Data.Interface
         void SaveChanges();
         void RollBack();
 
-
         #region Asynchronous methods
         Task BeginTransactionAsync();
         Task SaveChangesAsync();

@@ -13,7 +13,6 @@ namespace Infrastructure.Data.UoW
         public void SaveChanges() => _context.SaveChanges();
         public void RollBack() => _context.RollBack();
 
-
         #region Asynchronous methods
         public async Task BeginTransactionAsync() => await _context.BeginTransactionAsync();
         public async Task SaveChangesAsync() => await _context.SaveChangesAsync();

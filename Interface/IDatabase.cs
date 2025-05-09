@@ -16,12 +16,10 @@ namespace Infrastructure.Data.Interface
         void UpdateData(DbConnection connection, DbTransaction transaction, string commandText);
         void UpdateData(DbConnection connection, DbTransaction transaction, DbCommand command);
 
-
         #region Asynchronous methods
         Task<DataTable> GetDataAsync(string query);
         Task<DataTable> GetDataAsync(DbConnection connection, DbTransaction transaction, string query);
         Task<DataTable> GetDataAsync(DbConnection connection, DbTransaction transaction, DbCommand command);
-        Task<DbConnection> GetConnectionAsync();
         Task<DbTransaction> GetTransactionAsync(DbConnection connection, IsolationLevel isolationLevel);
 
         Task UpdateDataAsync(string commandText);
