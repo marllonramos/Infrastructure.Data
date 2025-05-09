@@ -16,8 +16,7 @@ namespace Infrastructure.Data.Context
         public void BeginTransaction()
         {
             Connection = Database.GetConnection();
-            if (Connection.State != ConnectionState.Open)
-                Connection.Open();
+            if (Connection.State != ConnectionState.Open) Connection.Open();
             Transaction = Database.GetTransaction(Connection, IsolationLevel.ReadCommitted);
         }
 
@@ -54,8 +53,7 @@ namespace Infrastructure.Data.Context
         public async Task BeginTransactionAsync()
         {
             Connection = await Database.GetConnectionAsync();
-            if (Connection.State != ConnectionState.Open)
-                await Connection.OpenAsync();
+            if (Connection.State != ConnectionState.Open) await Connection.OpenAsync();
             Transaction = await Database.GetTransactionAsync(Connection, IsolationLevel.ReadCommitted);
         }
 
