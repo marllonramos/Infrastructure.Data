@@ -17,7 +17,7 @@
 ## Sobre
 
     Essa é uma biblioteca que serve de abstração para implementação de conexão às bases de dados relacionais.
-	Nela constam métodos necessários para conectar e manipular dados que servem às bases de dados relacionais.
+    Nela constam métodos necessários para conectar e manipular dados que servem às bases de dados relacionais.
 
 ## Funcionalidades
 
