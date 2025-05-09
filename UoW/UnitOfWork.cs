@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Data.Interface;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Data.UoW
 {
@@ -11,5 +12,12 @@ namespace Infrastructure.Data.UoW
         public void BeginTransaction() => _context.BeginTransaction();
         public void SaveChanges() => _context.SaveChanges();
         public void RollBack() => _context.RollBack();
+
+
+        #region Asynchronous methods
+        public async Task BeginTransactionAsync() => await _context.BeginTransactionAsync();
+        public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
+        public async Task RollBackAsync() => await _context.RollBackAsync();
+        #endregion
     }
 }
