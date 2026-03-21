@@ -1,9 +1,5 @@
-<p align="center" id="topo">
-  <img src="./assets/logo.jpg" alt="TrackYou Logo" width="400"/>
-</p>
-
 <h1 align="center">
-    TrackYou Data
+    Infrastructure Data
 </h1>
 
 <p align="center"><strong>Navegação do projeto</strong></p>
