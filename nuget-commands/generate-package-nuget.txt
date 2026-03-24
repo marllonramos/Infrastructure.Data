@@ -1,0 +1,33 @@
+- Na pasta do projeto executar o comando para gerar o pacote:
+dotnet pack -c Release
+
+- Isso gera o pacote NuGet, normalmente em:
+bin/Release/SeuPacote.1.0.0.nupkg
+
+- Executar o comando no bash (Para adicionar a source do GitHub Packages):
+dotnet nuget add source "https://nuget.pkg.github.com/marllonramos/index.json" \
+  --name github \
+  --username SEU_USUARIO \
+  --password SEU_TOKEN \
+  --store-password-in-clear-text
+
+- Executar o comando no bash (Para publicar o pacote):
+dotnet nuget push "bin/Release/SeuPacote.1.0.0.nupkg" \
+  --source github \
+  --api-key SEU_TOKEN
+
+- Para consumir em outro projeto, devemos criar o arquivo 'NuGet.config' na raiz desse projeto e colar a configuração abaixo:
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="github" value="https://nuget.pkg.github.com/SEU_USUARIO/index.json" />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+  </packageSources>
+
+  <packageSourceCredentials>
+    <github>
+      <add key="Username" value="SEU_USUARIO" />
+      <add key="ClearTextPassword" value="%GITHUB_TOKEN%" />
+    </github>
+  </packageSourceCredentials>
+</configuration>
